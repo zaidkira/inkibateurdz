@@ -119,8 +119,7 @@ const AdminMaterial: React.FC = () => {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Nouveau Matériel</DialogTitle>
-              </DialogHeader>
+                <DialogTitle>Nouveau Matériel</DialogTitle>\n              </DialogHeader>
               <form onSubmit={handleAddMaterial} className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <Label>Nom du matériel</Label>
@@ -140,8 +139,7 @@ const AdminMaterial: React.FC = () => {
                       <SelectContent>
                         <SelectItem value="laptop">Ordinateur / Laptop</SelectItem>
                         <SelectItem value="vr">Casque VR / AR</SelectItem>
-                        <SelectItem value="server">Serveur / Réseau</SelectItem>
-                        <SelectItem value="electronics">Électronique</SelectItem>
+                        <SelectItem value="server">Serveur / Réseau</SelectItem>\n                        <SelectItem value="electronics">Électronique</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -219,21 +217,20 @@ const AdminMaterial: React.FC = () => {
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Inventaire Actuel</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {materials.map((item) => (
-              <Card key={item.id} className="border-0 shadow-sm relative group overflow-hidden">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
-                      {item.type === 'laptop' ? <Monitor className="w-6 h-6" /> : item.type === 'server' ? <Server className="w-6 h-6" /> : <Package className="w-6 h-6"/>}
+            {materials.map((item) => (\n              <Card key={item.id} className="border-0 shadow-sm relative group overflow-hidden">
+                <CardContent className=\"p-6\">
+                  <div className=\"flex items-center space-x-4 mb-4\">
+                    <div className=\"w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600\">
+                      {item.type === 'laptop' ? <Monitor className=\"w-6 h-6\" /> : item.type === 'server' ? <Server className=\"w-6 h-6\" /> : <Package className=\"w-6 h-6\"/>}
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900">{item.name}</h4>
-                      <p className="text-sm text-gray-500">Stock: {item.availableCount}</p>
+                      <h4 className=\"font-medium text-gray-900\">{item.name}</h4>
+                      <p className=\"text-sm text-gray-500\">Stock: {item.availableCount}</p>
                     </div>
                   </div>
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button variant="ghost" size="icon" className="text-red-500 hover:bg-red-50 hover:text-red-700" onClick={() => handleDeleteMaterial(item.id)}>
-                      <Trash2 className="w-4 h-4" />
+                  <div className=\"absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity\">
+                    <Button variant=\"ghost\" size=\"icon\" className=\"text-red-500 hover:bg-red-50 hover:text-red-700\" onClick={() => handleDeleteMaterial(item.id)}>
+                      <Trash2 className=\"w-4 h-4\" />
                     </Button>
                   </div>
                 </CardContent>
