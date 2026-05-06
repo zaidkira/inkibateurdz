@@ -5,6 +5,7 @@
   "author": "Mehdi Mokkedes",
   "type": "module",
   "scripts": {
+    "start": "node server/index.cjs",
     "build": "vite build",
     "dev": "npx concurrently \"vite --open\" \"node server/index.cjs\""
   },

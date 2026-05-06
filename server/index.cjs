@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -112,6 +113,14 @@ app.delete('/api/news/:id', (req, res) => {
   }
 });
 
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Fallback to index.html for SPA routing
+app.get(/^(.*)$/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
