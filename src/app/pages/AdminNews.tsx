@@ -34,7 +34,7 @@ const AdminNews: React.FC = () => {
 
   const fetchNews = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/news');
+      const res = await fetch('/api/news');
       const data = await res.json();
       if (data.success) setNews(data.news);
     } catch (error) {
@@ -48,7 +48,7 @@ const AdminNews: React.FC = () => {
     setMessage({ type: '', text: '' });
 
     try {
-      const res = await fetch('http://localhost:3001/api/news', {
+      const res = await fetch('/api/news', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -69,7 +69,7 @@ const AdminNews: React.FC = () => {
     if (!window.confirm('Voulez-vous vraiment supprimer cet article ?')) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/news/${id}`, {
+      const res = await fetch(`/api/news/${id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
